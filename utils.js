@@ -1,4 +1,4 @@
-// Spotify Dig Helper - utilities
+// Sxxxxfy Dig Helper - utilities
 // ログ・文字列正規化・クエリ/リンク生成などの共通ヘルパー。
 
 (function () {

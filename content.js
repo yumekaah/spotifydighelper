@@ -1,4 +1,4 @@
-// Spotify Dig Helper - エントリポイント / オーケストレーション
+// Sxxxxfy Dig Helper - エントリポイント / オーケストレーション
 // Track 検出 -> ストアリンク生成 -> UI 描画。SPA 対応で MutationObserver を使う。
 // (Discogs/iTunes メタ取得は Phase 5/6 で本処理に接続する。)
 
@@ -20,14 +20,14 @@
 
       SDH.ui.patchSectionSpacing();
     } catch (e) {
-      SDH.warn("[SDH] processOnce エラー (Spotifyへの影響なし):", e);
+      SDH.warn("[SDH] processOnce エラー (Sxxxxfyへの影響なし):", e);
     }
   }
 
   const run = SDH.debounce(processOnce, SDH.CONFIG.OBSERVER_DEBOUNCE_MS);
 
   function start() {
-    SDH.log("Spotify Dig Helper 起動 v0.2.0");
+    SDH.log("Sxxxxfy Dig Helper 起動 v0.2.0");
     processOnce();
 
     const observer = new MutationObserver(() => {

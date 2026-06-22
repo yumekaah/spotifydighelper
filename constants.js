@@ -1,6 +1,6 @@
-// Spotify Dig Helper - constants & config
+// Sxxxxfy Dig Helper - constants & config
 // 設定値とDOMセレクタを一元管理する。
-// SpotifyのDOMは変わりやすいため、セレクタの修正はこのファイルだけで完結させる。
+// SxxxxfyのDOMは変わりやすいため、セレクタの修正はこのファイルだけで完結させる。
 
 (function () {
   "use strict";
@@ -19,7 +19,7 @@
     INJECTED_FLAG: "data-sdh-injected",
   };
 
-  // ---- Spotify DOM セレクタ ----
+  // ---- Sxxxxfy DOM セレクタ ----
   // data-testid を最優先し、壊れた場合に備えてフォールバックを併記する。
   // カンマ区切りは querySelector の OR フォールバックとして機能する。
   SDH.SELECTORS = {

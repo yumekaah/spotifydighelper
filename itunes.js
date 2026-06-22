@@ -1,4 +1,4 @@
-// Spotify Dig Helper - iTunes Store リンク取得 (Phase 6 で実装予定)
+// Sxxxxfy Dig Helper - iTunes Store リンク取得 (Phase 6 で実装予定)
 //
 // 役割: Apple iTunes Search API で artist + track を検索し trackViewUrl を取得。
 //       成功時に [IT] ボタンを表示する。失敗時は非表示。

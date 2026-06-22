@@ -1,4 +1,4 @@
-// Spotify Dig Helper - UI 描画
+// Sxxxxfy Dig Helper - UI 描画
 // 各トラックコンテナに [BP][BC][TX][DG](+[IT]) と Label/Cat# パネルを注入する。
 
 (function () {
@@ -17,7 +17,7 @@
     a.href = href;
     a.target = "_blank";
     a.rel = "noopener noreferrer";
-    // Spotify 側の行クリック(再生)に伝播させない。
+    // Sxxxxfy 側の行クリック(再生)に伝播させない。
     a.addEventListener("click", (e) => e.stopPropagation());
 
     if (icon) {

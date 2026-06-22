@@ -1,4 +1,4 @@
-// Spotify Dig Helper - キャッシュ (chrome.storage.local)
+// Sxxxxfy Dig Helper - キャッシュ (chrome.storage.local)
 // キー: "artistName|trackName"
 // 値:   { releaseInfo, itunesUrl, cachedAt }
 // 有効期限: CONFIG.CACHE_TTL_DAYS 日

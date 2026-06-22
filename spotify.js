@@ -1,4 +1,4 @@
-// Spotify Dig Helper - Spotify DOM 解析
+// Sxxxxfy Dig Helper - Sxxxxfy DOM 解析
 // Now Playing ウィジェットおよびトラックリスト各行から TrackInfo を抽出する。
 //
 // TrackInfo = { trackName, artistName, albumName? }

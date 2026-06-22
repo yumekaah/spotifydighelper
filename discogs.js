@@ -1,4 +1,4 @@
-// Spotify Dig Helper - Discogs メタデータ取得 (feature/discogs-api ブランチで実装)
+// Sxxxxfy Dig Helper - Discogs メタデータ取得 (feature/discogs-api ブランチで実装)
 //
 // 役割: artist + track で Discogs Search API を叩き、候補をスコアリングして
 //       Label / Catalog Number / Year を返す。

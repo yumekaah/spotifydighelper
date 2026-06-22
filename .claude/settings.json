@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/usa/OneDrive/�h�L�������g/spotifydighelper/**)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://www.google.com/s2/favicons?sz=32&domain=soundcloud.com\" -OutFile \"c:\\\\Users\\\\usa\\\\OneDrive\\\\ドキュメント\\\\spotifydighelper\\\\favicons\\\\soundcloud.png\"; \\(Get-Item \"c:\\\\Users\\\\usa\\\\OneDrive\\\\ドキュメント\\\\spotifydighelper\\\\favicons\\\\soundcloud.png\"\\).Length)",
+      "Bash(git commit -m ' *)",
+      "Bash(git reset *)",
+      "Bash(gh auth *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(git filter-repo *)",
+      "Bash(git filter-branch --env-filter ' *)",
+      "Bash(xargs -n 1 git update-ref -d)",
+      "Bash(git reflog *)",
+      "Bash(git gc *)",
+      "Bash(curl -s \"https://api.github.com/repos/yumekaah/spotifydighelper/commits?per_page=100\")",
+      "Bash(curl -s \"https://api.github.com/repos/yumekaah/spotifydighelper/commits?per_page=100&sha=feature/discogs-api\")",
+      "Bash(curl -s \"https://api.github.com/repos/yumekaah/spotifydighelper/events\")",
+      "PowerShell(Invoke-WebRequest -Uri \"https://www.google.com/s2/favicons?sz=32&domain=music.apple.com\" -OutFile \"c:\\\\Users\\\\usa\\\\OneDrive\\\\ドキュメント\\\\spotifydighelper\\\\favicons\\\\applemusic.png\"; \\(Get-Item \"c:\\\\Users\\\\usa\\\\OneDrive\\\\ドキュメント\\\\spotifydighelper\\\\favicons\\\\applemusic.png\"\\).Length)"
+    ]
+  }
+}
