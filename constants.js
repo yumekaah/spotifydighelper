@@ -51,12 +51,12 @@
 
   // ボタン定義 (label, icon, key, title)
   SDH.STORE_BUTTONS = [
-    { key: "beatport",   label: "Beatport",    icon: "favicons/beatport.png",    title: "Beatport で検索" },
-    { key: "bandcamp",   label: "Bandcamp",    icon: "favicons/bandcamp.png",    title: "Bandcamp で検索" },
-    { key: "traxsource", label: "Traxsource",  icon: "favicons/traxsource.ico",  title: "Traxsource で検索" },
-    { key: "soundcloud", label: "SoundCloud",  icon: "favicons/soundcloud.png",  title: "SoundCloud で検索" },
-    { key: "discogs",    label: "Discogs",     icon: "favicons/discogs.png",     title: "Discogs で検索" },
-    { key: "itunes",     label: "iTunes",      icon: "favicons/itunes.png",      title: "iTunes Store で検索" },
-    { key: "google",     label: "Google",      icon: "favicons/google.ico",      title: "Google で検索" },
+    { key: "beatport",   label: "Beatport",   icon: "favicons/beatport.png",   title: "Beatport で検索" },
+    { key: "traxsource", label: "Traxsource", icon: "favicons/traxsource.ico", title: "Traxsource で検索" },
+    { key: "itunes",     label: "iTunes",     icon: "favicons/itunes.png",     title: "iTunes Store で検索" },
+    { key: "discogs",    label: "Discogs",    icon: "favicons/discogs.png",    title: "Discogs で検索" },
+    { key: "bandcamp",   label: "Bandcamp",   icon: "favicons/bandcamp.png",   title: "Bandcamp で検索" },
+    { key: "soundcloud", label: "SoundCloud", icon: "favicons/soundcloud.png", title: "SoundCloud で検索" },
+    { key: "google",     label: "Google",     icon: "favicons/google.ico",     title: "Google で検索" },
   ];
 })();
