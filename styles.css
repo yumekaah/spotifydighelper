@@ -46,7 +46,7 @@
   font-weight: 400;
   letter-spacing: 0rem;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
   cursor: pointer;
   transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
 }
@@ -82,7 +82,7 @@
   background: #1db954;
   color: #000;
   border-color: #1db954;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .sdh-meta {
