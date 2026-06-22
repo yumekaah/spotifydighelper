@@ -48,6 +48,7 @@
   text-align: center;
   text-decoration: none !important;
   cursor: pointer;
+  mix-blend-mode: multiply;
   transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
 }
 
