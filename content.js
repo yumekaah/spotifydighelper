@@ -7,6 +7,16 @@
 
   window.SDH = window.SDH || {};
 
+  let observer = null;
+
+  function isContextInvalidated(e) {
+    return e && e.message && e.message.includes("Extension context invalidated");
+  }
+
+  function shutdown() {
+    if (observer) { observer.disconnect(); observer = null; }
+  }
+
   function processOnce() {
     try {
       const tracks = SDH.spotify.collectTracks();
@@ -20,6 +30,7 @@
 
       SDH.ui.patchSectionSpacing();
     } catch (e) {
+      if (isContextInvalidated(e)) { shutdown(); return; }
       SDH.warn("[SDH] processOnce エラー (Sxxxxfyへの影響なし):", e);
     }
   }
@@ -30,8 +41,11 @@
     SDH.log("Sxxxxfy Dig Helper 起動 v0.2.0");
     processOnce();
 
-    const observer = new MutationObserver(() => {
-      try { run(); } catch (e) { SDH.warn("[SDH] Observer エラー:", e); }
+    observer = new MutationObserver(() => {
+      try { run(); } catch (e) {
+        if (isContextInvalidated(e)) { shutdown(); return; }
+        SDH.warn("[SDH] Observer エラー:", e);
+      }
     });
     observer.observe(document.body, { childList: true, subtree: true });
     SDH.log("MutationObserver 監視開始 (document.body)");
