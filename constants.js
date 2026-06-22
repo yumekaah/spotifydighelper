@@ -46,7 +46,7 @@
     soundcloud: "https://soundcloud.com/search?q={q}",
     discogs:    "https://www.discogs.com/search?q={q}",
     google:     "https://www.google.com/search?q={q}",
-    itunes:     "https://itunes.apple.com/search?term={q}&media=music",
+    itunes:     "https://music.apple.com/search?term={q}",
   };
 
   // ボタン定義 (label, icon, key, title)
