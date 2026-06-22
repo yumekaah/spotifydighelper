@@ -36,7 +36,7 @@
   display: inline-flex;
   align-items: center;
   min-width: 26px;
-  padding: 1px 6px;
+  padding: 3px 10px;
   border: 1px solid #4a4a4a;
   border-radius: 9px;
   background: #2a2a2a;
@@ -81,6 +81,7 @@
   background: #1db954;
   color: #000;
   border-color: #1db954;
+  text-decoration: none;
 }
 
 .sdh-meta {
