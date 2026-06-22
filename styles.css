@@ -87,7 +87,7 @@
 }
 
 /* 幅1150px以下: アイコンのみ・ボタン一回り大きく */
-@media (max-width: 1150px) {
+@media (max-width: 1250px) {
   .sdh-btn-label {
     display: none;
   }
