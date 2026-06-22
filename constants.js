@@ -45,6 +45,7 @@
     traxsource: "https://www.traxsource.com/search?term={q}",
     soundcloud: "https://soundcloud.com/search?q={q}",
     discogs:    "https://www.discogs.com/search?q={q}",
+    youtube:    "https://www.youtube.com/results?search_query={q}",
     google:     "https://www.google.com/search?q={q}",
     applemusic: "https://music.apple.com/search?term={q}",
   };
@@ -57,6 +58,7 @@
     { key: "discogs",    label: "Discogs",    icon: "favicons/discogs.png",    title: "Discogs で検索" },
     { key: "bandcamp",   label: "Bandcamp",   icon: "favicons/bandcamp.png",   title: "Bandcamp で検索" },
     { key: "soundcloud", label: "SoundCloud", icon: "favicons/soundcloud.png", title: "SoundCloud で検索" },
+    { key: "youtube",    label: "YouTube",    icon: "favicons/youtube.png",    title: "YouTube で検索" },
     { key: "google",     label: "Google",     icon: "favicons/google.ico",     title: "Google で検索" },
   ];
 })();
