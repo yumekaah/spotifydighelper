@@ -60,6 +60,23 @@
   border-radius: 2px;
 }
 
+/* Now Playing バー: 常にアイコンのみ */
+.sdh-scope-now-playing .sdh-btn-label {
+  display: none;
+}
+
+.sdh-scope-now-playing .sdh-btn {
+  min-width: 34px;
+  padding: 4px 6px;
+  justify-content: center;
+}
+
+.sdh-scope-now-playing .sdh-btn-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0;
+}
+
 /* 幅1150px以下: アイコンのみ・ボタン一回り大きく */
 @media (max-width: 1150px) {
   .sdh-btn-label {
