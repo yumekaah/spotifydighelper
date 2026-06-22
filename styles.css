@@ -80,9 +80,13 @@
 
 .sdh-btn:hover {
   background: #1db954;
-  color: #000;
+  color: #161616;
   border-color: #1db954;
   text-decoration: none !important;
+}
+
+[role="row"] {
+  padding-bottom: 4px;
 }
 
 .sdh-meta {
