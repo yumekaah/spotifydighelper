@@ -105,6 +105,14 @@
     return bar;
   };
 
+  // バーの Label / Cat# 表示を API 取得後に更新する。
+  SDH.ui.updateMeta = function (bar, releaseInfo) {
+    if (!bar || !bar._meta || !releaseInfo) return;
+    const vals = bar._meta.querySelectorAll(".sdh-meta-val");
+    if (vals[0]) vals[0].textContent = releaseInfo.label || "-";
+    if (vals[1]) vals[1].textContent = releaseInfo.catalogNumber || "-";
+  };
+
   // アーティストページでSDHバーと被る要素にマージンを付与する。
   SDH.ui.patchSectionSpacing = function () {
     // ディスコグラフィーセクション (href で特定)
