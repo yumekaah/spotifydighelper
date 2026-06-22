@@ -15,6 +15,10 @@ desktop.ini
 secrets.js
 config.local.js
 
+# Claude Code (ローカル専用)
+CLAUDE.md
+.claude/
+
 # Build / temp
 *.crx
 *.pem

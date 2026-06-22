@@ -10,10 +10,10 @@ Sxxxxfy Web Player の各トラックに、DJ向けの Dig 支援ボタンを追
 
 ## 機能
 
-- **ストア検索ボタン**: Beatport / Traxsource / iTunes / Discogs / Bandcamp / SoundCloud / Google
+- **ストア検索ボタン**: Beatport / Traxsource / Apple Music / Discogs / Bandcamp / SoundCloud / YouTube / Google
 - **トラックリスト対応**: アルバム・プレイリスト・アーティストページの全行に表示
 - **Now Playing 対応**: 画面下部のプレイヤーにもボタンを常時表示
-- **レスポンシブ**: 画面幅 1150px 以下ではアイコンのみ表示に切替
+- **レスポンシブ**: 画面幅 1250px 以下ではアイコンのみ表示に切替
 - **SPA 対応**: Sxxxxfy のページ遷移・仮想リスト更新を MutationObserver で追従
 
 ---
