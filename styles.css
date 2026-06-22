@@ -61,7 +61,15 @@
   border-radius: 2px;
 }
 
-/* Now Playing バー: 常にアイコンのみ */
+/* Now Playing バー: 常にアイコンのみ・マージンリセット */
+.sdh-scope-now-playing {
+  margin: 0;
+}
+
+.sdh-scope-now-playing .sdh-btn-row {
+  margin: 0;
+}
+
 .sdh-scope-now-playing .sdh-btn-label {
   display: none;
 }
