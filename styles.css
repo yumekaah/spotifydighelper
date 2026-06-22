@@ -1,0 +1,65 @@
+/* Spotify Dig Helper - styles
+   Spotify のダークテーマに馴染むコンパクト表示。 */
+
+.sdh-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+  padding: 2px 4px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #b3b3b3;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* トラックリスト行に出すときはやや控えめに */
+.sdh-scope-tracklist-row {
+  margin: 2px 0;
+}
+
+.sdh-btn-row {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.sdh-btn {
+  display: inline-block;
+  min-width: 26px;
+  padding: 1px 6px;
+  border: 1px solid #4a4a4a;
+  border-radius: 9px;
+  background: #2a2a2a;
+  color: #1db954;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.sdh-btn:hover {
+  background: #1db954;
+  color: #000;
+  border-color: #1db954;
+}
+
+.sdh-meta {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.sdh-meta-line {
+  white-space: nowrap;
+}
+
+.sdh-meta-key {
+  color: #777;
+}
+
+.sdh-meta-val {
+  color: #ddd;
+}

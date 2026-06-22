@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify Dig Helper",
+  "version": "0.2.0",
+  "description": "Spotify Web Player上の楽曲にDJ向けDig支援情報 (Beatport/Bandcamp/Traxsource/Discogs/iTunes リンク, Label, Cat#) を表示する。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://api.discogs.com/*",
+    "https://itunes.apple.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": [
+        "constants.js",
+        "utils.js",
+        "cache.js",
+        "discogs.js",
+        "itunes.js",
+        "spotify.js",
+        "ui.js",
+        "content.js"
+      ],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
