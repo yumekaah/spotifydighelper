@@ -1,58 +1,71 @@
 # Spotify Dig Helper
 
-Spotify Web Player 上の楽曲に、DJ 向けの Dig 支援情報を表示する Chrome 拡張 (Manifest V3)。
+Spotify Web Player の各トラックに、DJ向けの Dig 支援ボタンを追加する Chrome 拡張機能 (Manifest V3)。
 
-各トラックに `[BP] [BC] [TX] [DG]`（+ 将来 `[IT]`）のストア検索ボタンと、`Label` / `Cat#` を表示します。
+トラックリストの各行と下部の Now Playing バーに、各ストアへの検索リンクボタンをワンクリックで表示します。
 
-## 現在の実装状況 (v0.2.0)
+---
 
-- ✅ Phase 1: スキャフォールド (MV3 manifest, content scripts, icons)
-- ✅ Phase 2: Spotify DOM 解析 (Now Playing + トラックリスト行 / MutationObserver)
-- ✅ Phase 3: UI 描画 (ボタン + Label/Cat# パネル)
-- ✅ Phase 4: ストアリンク生成 (Beatport / Bandcamp / Traxsource / Discogs)
-- ⏳ Phase 5: Discogs メタ取得 (Label/Cat#) — `discogs.js` はスタブ
-- ⏳ Phase 6: iTunes リンク (`[IT]`) — `itunes.js` はスタブ
-- ⏳ Phase 7: キャッシュ (`cache.js` は実装済み・未接続)
+## 機能
 
-> 現状は **リンク生成まで**。Label / Cat# は API 未接続のため `-` 表示です。
+- **ストア検索ボタン**: Beatport / Traxsource / iTunes / Discogs / Bandcamp / SoundCloud / Google
+- **トラックリスト対応**: アルバム・プレイリスト・アーティストページの全行に表示
+- **Now Playing 対応**: 画面下部のプレイヤーにもボタンを常時表示
+- **レスポンシブ**: 画面幅 1150px 以下ではアイコンのみ表示に切替
+- **SPA 対応**: Spotify のページ遷移・仮想リスト更新を MutationObserver で追従
 
-## インストール (開発用ローカルロード)
+---
 
-1. Chrome で `chrome://extensions` を開く
-2. 右上「デベロッパーモード」を ON
-3. 「パッケージ化されていない拡張機能を読み込む」→ このフォルダを選択
-4. `https://open.spotify.com/` を開く
+## インストール
 
-## 動作確認
+Chrome の開発者モードでローカルインストールします。Chrome Web Store への公開は未対応です。
 
-- DevTools Console に `[SDH] ...` ログが出る (`ENABLE_DEBUG=true`)
-  - 起動 / MutationObserver 開始 / `検出: Artist - Track` / `UI注入` など
-- 再生中のトラック (画面下部) とトラックリスト各行にボタンが出る
-- ボタンクリックで各ストアの検索ページが新規タブで開く
+1. このリポジトリを ZIP でダウンロード、または `git clone`
+2. Chrome で `chrome://extensions` を開く
+3. 右上の「デベロッパーモード」を ON にする
+4. 「パッケージ化されていない拡張機能を読み込む」をクリック
+5. ダウンロードしたフォルダ (`spotifydighelper/`) を選択
+6. `https://open.spotify.com/` を開くとボタンが表示される
+
+---
 
 ## ファイル構成
 
-| ファイル | 役割 |
+```
+spotifydighelper/
+├── manifest.json     # MV3 設定
+├── constants.js      # DOM セレクタ・ストア URL・ボタン定義
+├── utils.js          # ユーティリティ (ログ / 正規化 / リンク生成)
+├── spotify.js        # Spotify DOM からトラック情報を抽出
+├── ui.js             # ボタンバーの生成・注入
+├── content.js        # エントリポイント + MutationObserver
+├── background.js     # service worker
+├── cache.js          # chrome.storage.local キャッシュ (未接続)
+├── discogs.js        # Discogs API スタブ (feature/discogs-api ブランチで実装)
+├── itunes.js         # iTunes API スタブ
+├── styles.css        # スタイル
+└── favicons/         # 各ストアのアイコン
+```
+
+---
+
+## DOM セレクタのメンテナンス
+
+Spotify の DOM は定期的に変更されます。ボタンが表示されなくなった場合は `constants.js` の `SDH.SELECTORS` を修正してください。DevTools Console で `[SDH]` プレフィックスのログが確認できます (`SDH.CONFIG.ENABLE_DEBUG = true`)。
+
+---
+
+## ブランチ
+
+| ブランチ | 内容 |
 |---|---|
-| `manifest.json` | MV3 マニフェスト |
-| `constants.js` | 設定・**DOMセレクタ**・ストアURLテンプレート (DOM変更時はここを修正) |
-| `utils.js` | ログ / 正規化 / クエリ・リンク生成 / debounce |
-| `spotify.js` | Spotify DOM から TrackInfo 抽出 |
-| `ui.js` | ボタン・メタパネルの注入 |
-| `content.js` | エントリポイント / MutationObserver |
-| `cache.js` | chrome.storage.local キャッシュ (TTL 30日) |
-| `discogs.js` | Discogs メタ取得 (Phase5 スタブ) |
-| `itunes.js` | iTunes リンク取得 (Phase6 スタブ) |
-| `background.js` | service worker (将来 API fetch プロキシ) |
-| `styles.css` | スタイル |
+| `main` | ストアリンクボタン (API 呼び出しなし) |
+| `feature/discogs-api` | Discogs API で Label / Cat# を取得する実装 |
 
-## DOM が変わったら
+`feature/discogs-api` を使う場合は `background.js` の `DISCOGS_TOKEN` に [Discogs Personal Access Token](https://www.discogs.com/settings/developers) を設定してください（**トークンはコミットしないこと**）。
 
-Spotify Web Player の DOM はしばしば変わります。ボタンが出なくなったら
-`constants.js` の `SDH.SELECTORS` を実 DOM (`data-testid` ベース推奨) に合わせて更新してください。
-ログ (`ENABLE_DEBUG`) で検出有無を確認できます。
+---
 
-## デバッグ
+## ライセンス
 
-`constants.js` の `SDH.CONFIG.ENABLE_DEBUG = true` で詳細ログ出力。
-リリース時は `false` に。
+MIT
