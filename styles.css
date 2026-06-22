@@ -30,7 +30,12 @@
 .sdh-btn-row {
   display: inline-flex;
   gap: 4px;
-  mix-blend-mode: multiply;
+  background: rgb(255 255 255 / 0%);
+  background-image: linear-gradient(90deg, #ffffff29, #ffffff03 75%, #00000000);
+  width: auto;
+  padding: 4px 6px;
+  margin: 0px 0px 2px 48px;
+  border-radius: 4px;
 }
 
 .sdh-btn {
