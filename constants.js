@@ -40,18 +40,21 @@
   // ---- ストア検索URLテンプレート ----
   // {q} は encodeURIComponent 済みの "artist track" に置換される。
   SDH.STORE_URLS = {
-    beatport: "https://www.beatport.com/search?q={q}",
-    bandcamp: "https://bandcamp.com/search?q={q}",
+    beatport:   "https://www.beatport.com/search?q={q}",
+    bandcamp:   "https://bandcamp.com/search?q={q}",
     traxsource: "https://www.traxsource.com/search?term={q}",
-    discogs: "https://www.discogs.com/search?q={q}",
+    discogs:    "https://www.discogs.com/search?q={q}",
+    google:     "https://www.google.com/search?q={q}",
+    itunes:     "https://music.apple.com/search?term={q}",
   };
 
-  // ボタン定義 (label, key, title)
+  // ボタン定義 (label, icon, key, title)
   SDH.STORE_BUTTONS = [
-    { key: "beatport", label: "BP", title: "Beatport で検索" },
-    { key: "bandcamp", label: "BC", title: "Bandcamp で検索" },
-    { key: "traxsource", label: "TX", title: "Traxsource で検索" },
-    { key: "discogs", label: "DG", title: "Discogs で検索" },
-    // iTunes (IT) は itunes.js が trackViewUrl を取得できた時のみ動的追加
+    { key: "beatport",   label: "Beatport",   icon: "favicons/beatport.png",   title: "Beatport で検索" },
+    { key: "bandcamp",   label: "Bandcamp",   icon: "favicons/bandcamp.png",   title: "Bandcamp で検索" },
+    { key: "traxsource", label: "Traxsource", icon: "favicons/traxsource.ico", title: "Traxsource で検索" },
+    { key: "discogs",    label: "Discogs",    icon: "favicons/discogs.png",    title: "Discogs で検索" },
+    { key: "itunes",     label: "iTunes",     icon: "favicons/itunes.png",     title: "iTunes Store で検索" },
+    { key: "google",     label: "Google",     icon: "favicons/google.ico",     title: "Google で検索" },
   ];
 })();

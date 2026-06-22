@@ -16,6 +16,12 @@
   "background": {
     "service_worker": "background.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["favicons/*"],
+      "matches": ["https://open.spotify.com/*"]
+    }
+  ],
   "content_scripts": [
     {
       "matches": ["https://open.spotify.com/*"],

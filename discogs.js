@@ -1,4 +1,4 @@
-// Spotify Dig Helper - Discogs メタデータ取得 (Phase 5 で実装予定)
+// Spotify Dig Helper - Discogs メタデータ取得 (feature/discogs-api ブランチで実装)
 //
 // 役割: artist + track で Discogs Search API を叩き、候補をスコアリングして
 //       Label / Catalog Number / Year を返す。
@@ -20,7 +20,6 @@
   // ReleaseInfo = { label?, catalogNumber?, year? } | null
   // 返り値は Promise<ReleaseInfo | null>。
   SDH.discogs.fetchReleaseInfo = function (trackInfo) {
-    // TODO(Phase5): Search API 呼び出し + スコアリング + 採用ログ。
     SDH.log("[discogs] スタブ呼び出し (未実装):", trackInfo.artistName, "-", trackInfo.trackName);
     return Promise.resolve(null);
   };

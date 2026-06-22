@@ -14,9 +14,17 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* トラックリスト行に出すときはやや控えめに */
+/* トラックリスト: 行の直後に sibling として挿入 */
+/* grid 親では全カラムにまたがり、flex 親では幅100%で折り返す */
 .sdh-scope-tracklist-row {
-  margin: 2px 0;
+  grid-column: 1 / -1;
+  flex-basis: 100%;
+  width: 100%;
+  margin: 0 0 2px 16px;
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 0 0 4px 4px;
+  box-sizing: border-box;
 }
 
 .sdh-btn-row {
@@ -25,20 +33,48 @@
 }
 
 .sdh-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   min-width: 26px;
   padding: 1px 6px;
   border: 1px solid #4a4a4a;
   border-radius: 9px;
   background: #2a2a2a;
   color: #1db954;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.3px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+
+.sdh-btn-icon {
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
+  margin-right: 3px;
+  border-radius: 2px;
+}
+
+/* 幅1150px以下: アイコンのみ・ボタン一回り大きく */
+@media (max-width: 1150px) {
+  .sdh-btn-label {
+    display: none;
+  }
+
+  .sdh-btn {
+    min-width: 34px;
+    padding: 4px 6px;
+    justify-content: center;
+  }
+
+  .sdh-btn-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 0;
+  }
 }
 
 .sdh-btn:hover {
@@ -62,4 +98,17 @@
 
 .sdh-meta-val {
   color: #ddd;
+}
+
+/* アーティストページ: ディスコグラフィーセクション */
+[data-sdh-section-spaced] {
+  margin-top: 120px !important;
+}
+
+/* アーティストページ: 「もっと見る」/「表示数を少なくする」ボタン
+   margin-top は JS で動的計算して inline style で設定。
+   z-index で仮想リスト行の前面に出す。 */
+button[data-sdh-btn-spaced] {
+  position: relative;
+  z-index: 100;
 }
