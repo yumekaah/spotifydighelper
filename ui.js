@@ -62,15 +62,6 @@
     });
     bar.appendChild(btnRow);
 
-    // メタ情報 (Label / Cat#)。API未実装のうちは "-"。
-    const meta = document.createElement("div");
-    meta.className = "sdh-meta";
-    meta.appendChild(makeMetaLine("Label", "-"));
-    meta.appendChild(makeMetaLine("Cat#", "-"));
-    bar.appendChild(meta);
-
-    // 参照を保持 (後でメタ更新する用)。
-    bar._meta = meta;
     bar._btnRow = btnRow;
     return bar;
   };

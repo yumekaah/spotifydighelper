@@ -18,10 +18,7 @@
       // Phase 2 完了条件: コンソールに "Artist - Track" を出力。
       SDH.log("検出:", info.artistName + " - " + info.trackName);
 
-      // --- Phase 5/6 接続ポイント (feature/discogs-api ブランチで実装) ---
-      // const key = SDH.cacheKey(info);
-      // SDH.cache.get(key).then(...) ... SDH.discogs.fetchReleaseInfo(info) ...
-      // SDH.itunes.fetchTrackViewUrl(info) ...
+
     });
 
     SDH.ui.patchSectionSpacing();
