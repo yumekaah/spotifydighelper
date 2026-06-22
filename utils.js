@@ -38,13 +38,18 @@
   };
 
   // ストア検索リンクを生成する。
-  // 戻り値: { beatport, bandcamp, traxsource, discogs }
+  // Mac では iTunes は itms:// スキームでアプリを直接起動する。
   SDH.buildStoreLinks = function (trackInfo) {
     const raw = SDH.buildSearchString(trackInfo.artistName, trackInfo.trackName);
     const q = encodeURIComponent(raw);
+    const isMac = /Mac/.test(navigator.platform);
     const links = {};
     Object.keys(SDH.STORE_URLS).forEach((key) => {
-      links[key] = SDH.STORE_URLS[key].replace("{q}", q);
+      if (key === "itunes" && isMac) {
+        links[key] = `itms://itunes.apple.com/search?term=${q}&media=music`;
+      } else {
+        links[key] = SDH.STORE_URLS[key].replace("{q}", q);
+      }
     });
     return links;
   };
