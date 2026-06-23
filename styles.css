@@ -22,9 +22,10 @@
   grid-column: 1 / -1; /* 全カラムにスパン */
   grid-row: 2;          /* 2行目に配置 */
   width: 100%;
-  padding: 0 0 2px 48px;
+  padding: 0;
+  margin: -14px 0 4px 32px;
   background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01) 75%, transparent);
-  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
   box-sizing: border-box;
 }
 
