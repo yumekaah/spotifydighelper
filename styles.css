@@ -14,30 +14,30 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* トラックリスト: tracklist-row の子要素として通常フローで配置。
-   ホバー時のみ display:flex で展開し行の下部に表示する。 */
+/* トラックリスト: tracklist-row の子要素として Grid 2行目に配置。
+   Spotify の行は CSS Grid のため grid-column/grid-row で制御する。
+   ホバー時のみ display:flex で展開する。 */
 .sdh-scope-tracklist-row {
   display: none;
-  flex: 0 0 100%; /* 親 flex コンテナで必ず改行させる */
+  grid-column: 1 / -1; /* 全カラムにスパン */
+  grid-row: 2;          /* 2行目に配置 */
   width: 100%;
-  margin: 0 0 2px 48px;
-  padding: 0;
+  padding: 0 0 2px 48px;
   background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01) 75%, transparent);
   border-radius: 0 0 4px 4px;
   box-sizing: border-box;
 }
 
-/* ホバー時: 行の高さを auto にして行コンテンツ + バーの両方を表示 */
+/* ホバー時: Grid に2行目を追加してバーを展開 */
 [data-testid="tracklist-row"]:hover {
   height: auto !important;
-  min-height: 56px;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  grid-template-rows: 56px auto;
   overflow: visible !important;
 }
 
 [data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .sdh-btn-row {
