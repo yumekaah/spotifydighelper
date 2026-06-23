@@ -19,7 +19,6 @@
   let _barH = 0;    // 注入バーの高さ
   let _obs = null;  // MutationObserver (1つだけ)
 
-  // style から translateY の値を取り出す
   function parseY(el) {
     const m = (el.style.transform || "").match(/translateY\(([\d.e+]+)px\)/);
     return m ? parseFloat(m[1]) : null;
@@ -36,7 +35,6 @@
     const scale = (ROW_H + _barH) / ROW_H;
     const newY = y * scale;
 
-    // 値が変わらない場合はスキップ (y=0 など)
     if (Math.abs(newY - y) < 0.1) return;
 
     _rc.style.transform = `translateY(${newY}px)`;
@@ -69,7 +67,7 @@
 
   SDH.vscroll = {
     init() {
-      if (_obs) return; // 既に起動済み → 重複防止
+      if (_obs) return;
 
       const firstRow = document.querySelector('[data-testid="tracklist-row"]');
       if (!firstRow) return;
@@ -94,7 +92,6 @@
 
     shutdown() {
       if (_obs) { _obs.disconnect(); _obs = null; }
-      // 元の高さを復元
       if (_he && _origH > 0) _he.style.height = `${_origH}px`;
       _rc = null; _he = null; _origH = 0; _barH = 0;
     },
