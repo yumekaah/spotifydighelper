@@ -33,7 +33,8 @@
   pointer-events: auto;
 }
 
-[data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row {
+[data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row,
+.sdh-scope-tracklist-row:hover {
   display: flex;
 }
 
