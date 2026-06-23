@@ -18,13 +18,22 @@
    ホバー時のみ display:flex で展開し行の下部に表示する。 */
 .sdh-scope-tracklist-row {
   display: none;
-  flex-wrap: wrap;
+  flex: 0 0 100%; /* 親 flex コンテナで必ず改行させる */
   width: 100%;
   margin: 0 0 2px 48px;
   padding: 0;
   background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01) 75%, transparent);
   border-radius: 0 0 4px 4px;
   box-sizing: border-box;
+}
+
+/* ホバー時: 行の高さを auto にして行コンテンツ + バーの両方を表示 */
+[data-testid="tracklist-row"]:hover {
+  height: auto !important;
+  min-height: 56px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: visible !important;
 }
 
 [data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row {
