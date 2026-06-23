@@ -14,32 +14,20 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* トラックリスト: tracklist-row の子要素として absolute 配置。
-   フロー外なので仮想スクロールのレイアウトに影響しない。
-   親の tracklist-row は position:relative / overflow:visible (JS で設定)。
-   ホバー時のみ表示する。 */
+/* トラックリスト: tracklist-row の子要素として通常フローで配置。
+   ホバー時のみ display:flex で展開し行の下部に表示する。 */
 .sdh-scope-tracklist-row {
-  position: absolute;
-  top: 56px; /* ROW_H: 行コンテンツの直下 */
-  left: 48px;
-  right: 0;
-  z-index: 10;
   display: none;
   flex-wrap: wrap;
+  width: 100%;
+  margin: 0 0 2px 48px;
   padding: 0;
   background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01) 75%, transparent);
   border-radius: 0 0 4px 4px;
   box-sizing: border-box;
-  pointer-events: auto;
 }
 
-/* ホバー中の行を次の行より上に積んでバーがポインタイベントを受け取れるようにする */
-[data-testid="tracklist-row"]:hover {
-  z-index: 100;
-}
-
-[data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row,
-.sdh-scope-tracklist-row:hover {
+[data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row {
   display: flex;
 }
 
