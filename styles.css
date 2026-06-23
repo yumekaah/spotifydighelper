@@ -33,6 +33,11 @@
   pointer-events: auto;
 }
 
+/* ホバー中の行を次の行より上に積んでバーがポインタイベントを受け取れるようにする */
+[data-testid="tracklist-row"]:hover {
+  z-index: 100;
+}
+
 [data-testid="tracklist-row"]:hover .sdh-scope-tracklist-row,
 .sdh-scope-tracklist-row:hover {
   display: flex;
