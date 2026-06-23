@@ -26,7 +26,6 @@
         "utils.js",
         "spotify.js",
         "ui.js",
-        "vscroll.js",
         "content.js"
       ],
       "css": ["styles.css"],

@@ -67,6 +67,8 @@
   };
 
   // コンテナに対してバーを注入 (重複防止・曲変更時に再注入)。
+  // tracklist-row は position:relative + overflow:visible にして
+  // バーを absolute で行の直下に表示する (virtual scroll に影響しない)。
   SDH.ui.inject = function (trackInfo) {
     const container = trackInfo._container;
     if (!container) return null;
@@ -74,22 +76,18 @@
     const trackKey = trackInfo.artistName + "||" + trackInfo.trackName;
     if (container.getAttribute(FLAG()) === trackKey) return null;
 
-    // 曲が変わった場合は古いバーを除去する。
-    if (trackInfo._scope === "tracklist-row") {
-      const next = container.nextElementSibling;
-      if (next && next.classList.contains("sdh-bar")) next.remove();
-    } else {
-      const old = container.querySelector(".sdh-bar");
-      if (old) old.remove();
-    }
+    // 古いバーを除去する。
+    const old = container.querySelector(".sdh-bar");
+    if (old) old.remove();
 
     const bar = SDH.ui.createBar(trackInfo);
     container.setAttribute(FLAG(), trackKey);
+    container.appendChild(bar);
 
+    // tracklist-row は absolute 配置の基準点にする。
     if (trackInfo._scope === "tracklist-row") {
-      container.insertAdjacentElement("afterend", bar);
-    } else {
-      container.appendChild(bar);
+      container.style.position = "relative";
+      container.style.overflow = "visible";
     }
 
     SDH.log("UI注入:", trackInfo.artistName, "-", trackInfo.trackName, "(" + trackInfo._scope + ")");

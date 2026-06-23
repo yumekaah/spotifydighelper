@@ -15,37 +15,20 @@
 
   function shutdown() {
     if (observer) { observer.disconnect(); observer = null; }
-    SDH.vscroll.shutdown();
   }
-
-  let _lastPath = "";
 
   function processOnce() {
     try {
-      // SPA ページ遷移を検知したら vscroll をリセット
-      const currentPath = location.pathname;
-      if (currentPath !== _lastPath) {
-        _lastPath = currentPath;
-        SDH.vscroll.shutdown();
-      }
-
       const tracks = SDH.spotify.collectTracks();
       if (!tracks.length) return;
 
-      let injected = 0;
       tracks.forEach((info) => {
         const bar = SDH.ui.inject(info);
         if (!bar) return;
-        injected++;
         SDH.log("検出:", info.artistName + " - " + info.trackName);
       });
 
       SDH.ui.patchSectionSpacing();
-
-      // 初回注入後に vscroll を起動（以降は Observer が自動追従）
-      if (injected > 0) {
-        requestAnimationFrame(() => SDH.vscroll.init());
-      }
     } catch (e) {
       if (isContextInvalidated(e)) { shutdown(); return; }
       SDH.warn("[SDH] processOnce エラー (Sxxxxfyへの影響なし):", e);
