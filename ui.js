@@ -22,7 +22,7 @@
 
     if (icon) {
       const img = document.createElement("img");
-      img.src = chrome.runtime.getURL(icon);
+      img.src = browser.runtime.getURL(icon);
       img.className = "sdh-btn-icon";
       a.appendChild(img);
     }

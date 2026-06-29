@@ -1,8 +1,14 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Sxxxxfy Dig Helper",
   "version": "0.2.0",
   "description": "Sxxxxfy Web Player上の楽曲にDJ向けDig支援情報 (Beatport/Bandcamp/Traxsource/Discogs/iTunes リンク) を表示する。",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "spotifydighelper@ymk",
+      "strict_min_version": "109.0"
+    }
+  },
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -10,14 +16,10 @@
   },
   "permissions": ["storage"],
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"],
+    "persistent": false
   },
-  "web_accessible_resources": [
-    {
-      "resources": ["favicons/*"],
-      "matches": ["https://open.spotify.com/*"]
-    }
-  ],
+  "web_accessible_resources": ["favicons/*"],
   "content_scripts": [
     {
       "matches": ["https://open.spotify.com/*"],

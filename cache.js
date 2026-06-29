@@ -1,4 +1,4 @@
-// Sxxxxfy Dig Helper - キャッシュ (chrome.storage.local)
+// Sxxxxfy Dig Helper - キャッシュ (browser.storage.local)
 // キー: "artistName|trackName"
 // 値:   { releaseInfo, itunesUrl, cachedAt }
 // 有効期限: CONFIG.CACHE_TTL_DAYS 日
@@ -20,12 +20,12 @@
   SDH.cache.get = function (key) {
     return new Promise((resolve) => {
       try {
-        chrome.storage.local.get([key], (items) => {
+        browser.storage.local.get([key], (items) => {
           const entry = items && items[key];
           if (!entry) return resolve(null);
           if (Date.now() - (entry.cachedAt || 0) > ttlMs()) {
             // 期限切れ -> 破棄
-            chrome.storage.local.remove([key], () => resolve(null));
+            browser.storage.local.remove([key], () => resolve(null));
             return;
           }
           resolve(entry);
@@ -42,7 +42,7 @@
     return new Promise((resolve) => {
       const entry = Object.assign({}, data, { cachedAt: Date.now() });
       try {
-        chrome.storage.local.set({ [key]: entry }, () => resolve(entry));
+        browser.storage.local.set({ [key]: entry }, () => resolve(entry));
       } catch (e) {
         SDH.warn("cache.set失敗:", e);
         resolve(null);
